@@ -1,0 +1,72 @@
+@use '../util' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: rem(100);
+  background-color: var(--bg-color-header);
+  z-index: 1;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__menu {
+    display: flex;
+    gap: rem(60);
+
+    @include breakpoint-down(medium) {
+      display: none;
+    }
+
+    &__mobile {
+      width: rem(32);
+      height: rem(32);
+      cursor: pointer;
+
+      @include breakpoint(medium) {
+        display: none;
+      }
+    }
+  }
+
+  &__logo {
+    cursor: pointer;
+
+    @include breakpoint-down(small) {
+      width: rem(200);
+      object-fit: contain;
+    }
+  }
+
+}
+
+.menu__item {
+  font-weight: 600;
+  font-size: rem(13);
+  line-height: rem(16);
+  text-transform: uppercase;
+  cursor: pointer;
+
+  & > a {
+    text-decoration: none;
+    color: var(--color--white);
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 rem(2);
+    transition: background-size .2s;
+
+    &:hover {
+      background-size: 100% rem(2);
+    }
+  }
+}
+
+.menu__item.active > a {
+  color: var(--color-accent);
+}

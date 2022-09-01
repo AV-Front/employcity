@@ -1,0 +1,51 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 53px;
+    background: #3D4050;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #3E9CDC;
+    border-radius: 3px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-lato);
+  color: var(--color--black);
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+
+.accent {
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

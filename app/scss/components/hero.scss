@@ -1,0 +1,139 @@
+@use '../util' as *;
+
+.hero {
+  width: 100%;
+  height: rem(850);
+  position: relative;
+  padding: 0 0 30% 0;
+
+  @include breakpoint-down(small) {
+    display: flex;
+    justify-content: center;
+    height: rem(750);
+  }
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+  &__wrapper {
+    padding-top: rem(203);
+    height: rem(444);
+  }
+
+  &__title {
+    max-width: rem(780);
+    font-weight: 700;
+    font-size: rem(48);
+    line-height: rem(58);
+    text-transform: uppercase;
+    color: var(--color--black);
+    margin-bottom: rem(80);
+
+    @include breakpoint-down(large) {
+      font-size: rem(36);
+      line-height: rem(46);
+      margin-bottom: rem(60);
+    }
+
+    @include breakpoint-down(small) {
+      max-width: 100%;
+      font-size: rem(18);
+      line-height: rem(24);
+      margin-bottom: rem(20);
+    }
+
+    & > span {
+      font-family: var(--font-raleway);
+    }
+  }
+
+  &__description {
+    font-weight: 700;
+    font-size: rem(20);
+    line-height: rem(24);
+    color: var(--color--black);
+
+    @include breakpoint-down(large) {
+      font-size: rem(16);
+      line-height: rem(20);
+    }
+
+    @include breakpoint-down(small) {
+      font-size: rem(14);
+      line-height: rem(16);
+    }
+
+    &__list {
+      font-weight: 400;
+      margin-bottom: rem(80);
+
+      @include breakpoint-down(large) {
+        margin-bottom: rem(60);
+      }
+
+      @include breakpoint-down(small) {
+        margin-bottom: rem(40);
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: rem(30);
+
+    @include breakpoint-down(small) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: rem(30);
+    }
+
+    &__btn {
+      font-family: var(--font-lato);
+      width: rem(183);
+      height: rem(43);
+      font-weight: 400;
+      font-size: rem(13);
+      line-height: rem(16);
+      text-transform: uppercase;
+      padding: 0 rem(32);
+      border-radius: rem(4);
+      cursor: pointer;
+
+      @include breakpoint-down(small) {
+        width: 100%;
+      }
+    }
+
+    &__btn:first-child {
+      color: var(--color--white);
+      background: var(--color-accent);
+      border: rem(1) solid var(--color--white);
+    }
+
+    &__btn:last-child {
+      color: var(--color-hero-button);
+      background: var(--color--white);
+      border: rem(1) solid var(--color-hero-border);
+    }
+
+    &__btn:hover {
+      background: var(--color-primary);
+      color: var(--color--white)
+    }
+  }
+}
+
+.list__item {
+  list-style-type: '-';
+  padding-left: rem(10);
+  margin-left: rem(20);
+}

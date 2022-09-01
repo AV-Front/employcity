@@ -1,0 +1,229 @@
+@use '../util' as *;
+
+.form {
+  &__select-wrap {
+    grid-area: system;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__select {
+    display: flex;
+    align-items: center;
+    width: rem(370);
+    height: rem(48);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--color-secondary);
+    border: rem(1) solid var(--color--white);
+    border-radius: rem(3);
+    padding: rem(10);
+    cursor: pointer;
+    transition: all .1s linear;
+    font-size: rem(18);
+    line-height: rem(22);
+
+    @include breakpoint-down(large) {
+      width: 100%;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: rem(18);
+      line-height: rem(22);
+      color: var(--color-secondary);
+    }
+
+    &--open {
+      background-color: rgba(var(--bg-color-footer),.85);
+      border: .1rem solid var(--bg-color-footer);
+      color: #ccc;
+      border-radius: rem(3) rem(3) 0 0;
+
+      &::placeholder {
+        color: var(--color--white);
+      }
+    }
+  }
+
+  &__dataset {
+    width: rem(370);
+    height: rem(228);
+    overflow-y: hidden;
+    position: absolute;
+    top: 100%;
+    visibility: hidden;
+    background: #3D4050;
+    transition: all .1s linear;
+
+    @include breakpoint-down(large) {
+      width: 100%;
+      height: rem(320);
+    }
+  }
+
+  &__select--open ~ &__dataset {
+    visibility: visible;
+  }
+
+  &__select-arrow {
+    background: url('icons/arrow.svg') center no-repeat;
+    width: rem(20);
+    height: rem(20);
+    position: absolute;
+    cursor: pointer;
+    top: rem(14);
+    right: rem(12);
+    pointer-events: none;
+    transition: all .2s linear;
+  }
+
+  &__select--open + &__select-arrow {
+    background: url('icons/arrow-white.svg') center no-repeat;
+    //transform: rotate(180deg);
+    color: var(--color--white);
+  }
+
+  &__input {
+    width: rem(370);
+    height: rem(48);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--color-secondary);
+    border: rem(1) solid var(--color--white);
+    border-radius: rem(3);
+    padding: rem(12) rem(10);
+    font-size: rem(18);
+    line-height: rem(22);
+
+    @include breakpoint-down(large) {
+      width: 100%;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: rem(18);
+      line-height: rem(22);
+      color: var(--color-secondary);
+    }
+
+    &--email {
+      grid-area: email;
+    }
+
+    &--name {
+      grid-area: name;
+    }
+  }
+
+  &__input-wrap {
+    width: 100%;
+
+    &--range {
+      grid-area: range;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-content: space-between;
+
+      @include breakpoint-down(large) {
+        width: 100%;
+        min-height: rem(50);
+      }
+      @include breakpoint-down(medium) {
+        min-height: rem(80);
+      }
+    }
+
+    &--file {
+      grid-area: file;
+    }
+  }
+
+  &__range-label {
+    color: var(--color--white);
+  }
+
+  &__range-value {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 600;
+    color: var(--color--white);
+  }
+
+  &__range {
+    display: block;
+    width: 100%;
+    position: relative;
+    background-color: #dfdfe1;
+    border: rem(1) solid var(--color--white);
+    height: rem(6);
+    border-radius: rem(3);
+    cursor: pointer;
+  }
+
+  &__thumb {
+    background-color: #42A9ED;
+    border: rem(3) solid var(--color-feature-border);
+    width: rem(24);
+    height: rem(24);
+    border-radius: 50%;
+    position: absolute;
+    top: rem(-10);
+  }
+
+  &__file-label {
+    font-weight: 600;
+    border: rem(2) solid var(--color-primary);
+    padding: rem(10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: var(--color--white);
+    color: var(--color-secondary);
+    font-size: rem(15);
+    line-height: rem(18);
+    text-transform: uppercase;
+    border-radius: rem(3);
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: rem(18);
+      height: rem(20);
+      background: url('icons/file.svg') center no-repeat;
+      margin-right: rem(10);
+    }
+
+    &:hover {
+      background: var(--color-accent);
+      color: var(--color--white)
+    }
+  }
+
+  &__file {
+    display: none;
+  }
+
+  &__submit {
+    width: 100%;
+    max-width: rem(370);
+    height: rem(48);
+    background: var(--color-primary);
+    margin-top: rem(30);
+    font-weight: 600;
+    font-size: rem(15);
+    line-height: rem(18);
+    border: rem(1) solid var(--color--white);
+    border-radius: rem(4);
+    color: var(--color--white);
+    cursor: pointer;
+    text-transform: uppercase;
+    grid-area: submit;
+
+    &:hover {
+      background-color: var(--color-accent);
+      color: var(--color--white)
+    }
+  }
+}

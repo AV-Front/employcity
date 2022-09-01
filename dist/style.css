@@ -450,9 +450,17 @@ a:visited {
   }
 }
 
+@media (max-width:63.9375em) {
+  .order__features {
+    justify-content: center;
+    max-width: 25rem;
+  }
+}
+
 @media (max-width:39.9375em) {
   .order__features {
     flex-direction: column;
+    justify-content: flex-start;
   }
 }
 
